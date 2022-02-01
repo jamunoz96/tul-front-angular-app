@@ -1,0 +1,15 @@
+<nz-page-header class="site-page-header">
+      <nz-page-header-title [routerLink]="['/shop']" class="click" >[Tul~Challenge]</nz-page-header-title>
+      <nz-page-header-extra>
+            <nz-avatar nz-page-header-avatar nzSrc="https://avatars0.githubusercontent.com/u/22736418?s=88&v=4"></nz-avatar>
+            <button nz-button nzType="primary" (click)="logout()" nzDanger>
+                  Salir
+                  <i nz-icon nzType="poweroff" nzTheme="outline"></i>
+            </button>
+            <nz-badge [nzCount]="cartNumber" nzShowZero>
+                  <button [routerLink]="['cart']"  nz-button nzType="default" nzShape="circle">
+                        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                  </button>
+            </nz-badge>
+      </nz-page-header-extra>
+</nz-page-header>

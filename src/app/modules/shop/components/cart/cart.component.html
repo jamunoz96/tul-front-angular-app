@@ -1,0 +1,52 @@
+<div nz-row>
+    <div nz-col nzSpan="20" nzOffset="2">
+        <h1 nz-typography>Carrito</h1>
+    </div>
+    <div class="cart-content" nz-col nzSpan="20" nzOffset="2">
+        <ul nz-list nzBordered nzSize="large">
+
+            <li *ngIf="!products.length" nz-list-item nzNoFlex>
+                No tienes productos
+            </li>
+
+            <li nz-list-item *ngFor="let item of products" nzNoFlex>
+
+                <div nz-row nzJustify="space-around" nzAlign="middle">
+                    <div nz-col nzSpan="1">
+                        <nz-avatar nzSrc="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png">
+                        </nz-avatar>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <span style="margin-left: 10px;">
+                            {{ item.name }}
+                        </span>
+                    </div>
+                    <div nz-col nzSpan="2">
+                        Valor: {{ item.price }}
+                    </div>
+                    <div nz-col nzSpan="3">
+                        Total: {{ item.price*item.quantity }}
+                    </div>
+                    <div nz-col nzSpan="4">
+                        <nz-input-number (ngModelChange)="updateCart($event, item)" [nzMin]="1" [nzMax]="20" [(ngModel)]="item.quantity"></nz-input-number>
+
+                    </div>
+                    <div nz-col nzSpan="1">
+                        [{{item.quantity}}]
+                    </div>
+                    <div nz-col nzSpan="1">
+                        <i nz-icon nzType="delete" class="click" (click)="removeProduct(item.id)"
+                            style="color: #eb2f96; font-size: 18px; margin-left: 10px;" nzTheme="outline"></i>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="products.length" nz-col nzSpan="20" nzOffset="2">
+        <br>
+        <h3>Total productos: {{ totalItems }}</h3>
+        <button nz-button nzType="primary" nzSize="large" nzShape="round" (click)="createOrder()">Crear
+            orden</button>
+    </div>
+</div>

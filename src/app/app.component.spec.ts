@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'tul-front-challenge-app'`, () => {
+  it(`should have as title 'tul-front-challenge-last'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('tul-front-challenge-app');
+    expect(app.title).toEqual('tul-front-challenge-last');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('tul-front-challenge-app app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('tul-front-challenge-last app is running!');
   });
 });

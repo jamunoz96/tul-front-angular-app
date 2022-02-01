@@ -1,0 +1,68 @@
+<div nz-row>
+    <div nz-col nzSpan="20" nzOffset="2">
+        <h1 nz-typography>Productos</h1>
+        <br>
+        <div *ngIf="productLoading" nz-row nzJustify="space-around">
+            <div nz-col nzSpan="7">
+                <nz-card nzLoading="true">
+                    <nz-card-meta [nzAvatar]="avatarTemplate"></nz-card-meta>
+                </nz-card>
+            </div>
+            <div nz-col nzSpan="7">
+                <nz-card nzLoading="true">
+                    <nz-card-meta [nzAvatar]="avatarTemplate"></nz-card-meta>
+                </nz-card>
+            </div>
+            <div nz-col nzSpan="7">
+                <nz-card nzLoading="true">
+                    <nz-card-meta [nzAvatar]="avatarTemplate"></nz-card-meta>
+                </nz-card>
+            </div>
+            <ng-template #avatarTemplate>
+                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+            </ng-template>
+        </div>
+        <div *ngIf="!productLoading" nz-row nzJustify="space-around">
+            <div *ngFor="let item of products; let indexOfelement = index;" nz-col nzSpan="7">
+                <!-- <form> -->
+                <nz-card nzTitle="{{item.name}}" [nzCover]="coverTemplate" [nzActions]="[actionAddCart]"
+                    [nzExtra]="extraTemplate">
+                    <div class="card-body">
+                        <p>{{item.desc}}</p>
+                        <nz-tag>
+                            SKU: <b>{{item.sku}}</b>
+                        </nz-tag>
+                    </div>
+                </nz-card>
+                <ng-template #extraTemplate>
+                    <b nz-typography>${{item.price}}</b>
+                </ng-template>
+                <ng-template #coverTemplate>
+                    <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+                </ng-template>
+                <ng-template #actionAddCart>
+                    <nz-row class="center">
+                        <nz-col nzSpan="2">
+                            <br>
+                        </nz-col>
+                        <nz-col nzSpan="9">
+                            <!-- <input #range (change)="setQuantity(range.value, item)" type="range" min="1" [ngModel]="item.quantity" max="20"> -->
+                            <nz-slider [nzMin]="1" [nzMax]="20" [(ngModel)]="item.quantity"></nz-slider>
+                        </nz-col>
+                        <nz-col nzSpan="2">
+                            <br>
+                        </nz-col>
+                        <div nz-col nzSpan="6">
+                            <nz-input-number [nzMin]="1" [nzMax]="20" [(ngModel)]="item.quantity"></nz-input-number>
+                        </div>
+                        <div nz-col class="center" nzSpan="4">
+                            <i style="font-size: 26px; color: #0092ff" nz-tooltip nzTooltipTitle="Agregar al carrito"
+                                (click)="addToCart(item)" nz-icon nzType="shopping-cart"></i>
+                        </div>
+                    </nz-row>
+                </ng-template>
+            <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>

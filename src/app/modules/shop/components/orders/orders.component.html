@@ -1,0 +1,22 @@
+<div nz-row>
+    <div nz-col nzSpan="20" nzOffset="2">
+        <h1 nz-typography>Ordenes</h1>
+    </div>
+    <div class="cart-content" nz-col nzSpan="20" nzOffset="2">
+        <nz-list nzItemLayout="horizontal">
+            <nz-list-item *ngFor="let item of orders">
+              <nz-list-item-meta
+                nzDescription="Orden id: {{item.order.id}}" >
+                <nz-list-item-meta-title>
+                  <a href="https://ng.ant.design">Estado: {{ item.order.status }}</a>
+                </nz-list-item-meta-title>
+              </nz-list-item-meta>
+
+              <nz-card style="width:200px;" >
+                <h2>Total Productos: {{ item.products.length }}</h2>
+              </nz-card>
+
+            </nz-list-item>
+        </nz-list>
+    </div>
+</div>

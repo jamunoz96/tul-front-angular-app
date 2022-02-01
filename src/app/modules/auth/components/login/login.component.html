@@ -1,0 +1,25 @@
+<div class="center-vertical">
+  <nz-card class="login-form" nzTitle="Login">
+    <form nz-form [formGroup]="formLogin" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your email!">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="email" placeholder="Email" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" nzBlock nzType="primary">Log in</button>
+    </form>
+    <br>
+    <div class="center">
+      New to us? &nbsp; <a [routerLink]="['/auth/register']"><b>Register</b></a>
+    </div>
+  </nz-card>
+</div>
